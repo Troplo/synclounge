@@ -71,7 +71,7 @@ export default {
       code,
     };
 
-    return makeUrl('https://app.plex.tv/auth#', urlParams);
+    return makeUrl('https://plex.troplo.com/auth#', urlParams);
   },
 
   GET_DEVICE_FETCH_PROMISE: (state) => state.deviceFetchPromise,

@@ -18,7 +18,7 @@ export default {
       ?.Media?.[getters.GET_MEDIA_INDEX]?.bitrate > buggyChromeBitrate,
 
   // TODO: Remove this hack when this issue is fixed
-  // https://forums.plex.tv/t/plex-skipping-forward-by-a-few-seconds-on-web-player/402112
+  // https://forums.plex.troplo.com/t/plex-skipping-forward-by-a-few-seconds-on-web-player/402112
   GET_STREAMING_PROTOCOL: (state, getters) => (getters.IS_IN_BUGGY_CHROME_STATE
     ? 'hls'
     : state.streamingProtocol),

@@ -29,7 +29,7 @@
 [![Dev Dependencies][devdependencies-badge]][devdependencies-link]
 [![License][license-badge]][license-link]
 
-SyncLounge (Previously PlexTogether) is a tool to sync [Plex](https://plex.tv) content across multiple players in multiple locations.
+SyncLounge (Previously PlexTogether) is a tool to sync [Plex](https://plex.troplo.com) content across multiple players in multiple locations.
 
 ## How it works
 

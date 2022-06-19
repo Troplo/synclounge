@@ -5,7 +5,7 @@ import { slPlayerClientId } from '@/player/constants';
 
 export default {
   FETCH_PLEX_INIT_AUTH: async ({ getters }, signal) => fetchJson(
-    'https://plex.tv/api/v2/pins',
+    'https://plex.troplo.com/api/v2/pins',
     { strong: true },
     {
       method: 'POST',
@@ -16,7 +16,7 @@ export default {
 
   REQUEST_PLEX_AUTH_TOKEN: async ({ getters, commit, dispatch }, { signal, id }) => {
     const data = await fetchJson(
-      `https://plex.tv/api/v2/pins/${id}`,
+      `https://plex.troplo.com/api/v2/pins/${id}`,
       null,
       {
         headers: getters.GET_PLEX_INITIAL_AUTH_PARAMS,
@@ -34,7 +34,7 @@ export default {
   },
 
   FETCH_PLEX_USER: async ({ getters, commit }, signal) => {
-    const data = await fetchJson('https://plex.tv/api/v2/user', {
+    const data = await fetchJson('https://plex.troplo.com/api/v2/user', {
       ...getters.GET_PLEX_BASE_PARAMS(),
       includeSubscriptions: 1,
       includeProviders: 1,
@@ -55,7 +55,7 @@ export default {
       .filter((clientId) => clientId !== slPlayerClientId);
     const oldServersIds = rootGetters['plexservers/GET_PLEX_SERVER_IDS'];
 
-    const devices = await fetchJson('https://plex.tv/api/v2/resources', {
+    const devices = await fetchJson('https://plex.troplo.com/api/v2/resources', {
       ...getters.GET_PLEX_BASE_PARAMS(),
       includeHttps: 1,
       includeRelay: 1,

@@ -136,7 +136,7 @@
 
             <v-list-item
               :href="
-                'https://app.plex.tv/desktop#!/server/' +
+                'https://plex.troplo.com/desktop#!/server/' +
                   metadata.machineIdentifier +
                   '/details?key=' +
                   metadata.key
