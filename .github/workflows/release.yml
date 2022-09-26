@@ -20,7 +20,7 @@ jobs:
 
       - name: Cache Node.js modules
         id: cache
-        uses: actions/cache@v3.0.5
+        uses: actions/cache@v3.0.8
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -65,7 +65,7 @@ jobs:
 
       - name: Cache Node.js modules
         id: cache
-        uses: actions/cache@v3.0.5
+        uses: actions/cache@v3.0.8
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -82,7 +82,7 @@ jobs:
 
       - name: Semantic release
         id: release
-        uses: ahmadnassri/action-semantic-release@v2.0.1
+        uses: ahmadnassri/action-semantic-release@v2.1.10
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -100,7 +100,7 @@ jobs:
 
     steps:
       - name: Recreate tag
-        uses: actions/github-script@v6.1.0
+        uses: actions/github-script@v6.2.0
         with:
           script: |
             const tag = 'tags/${{ matrix.tag }}';
@@ -130,7 +130,7 @@ jobs:
 
       - name: Repo metadata
         id: repo
-        uses: actions/github-script@v6.1.0
+        uses: actions/github-script@v6.2.0
         with:
           script: |
             const repo = await github.rest.repos.get(context.repo)
@@ -154,7 +154,7 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
 
       - name: Get platforms
-        uses: actions/github-script@v6.1.0
+        uses: actions/github-script@v6.2.0
         id: platforms
         env:
           DOCKER_CLI_EXPERIMENTAL: enabled
@@ -168,7 +168,7 @@ jobs:
         run: echo ${{ steps.platforms.outputs.result }}
 
       - name: Cache Docker layers
-        uses: actions/cache@v3.0.5
+        uses: actions/cache@v3.0.8
         id: cache
         with:
           path: /tmp/.buildx-cache
@@ -189,7 +189,7 @@ jobs:
 
       - name: Build and push
         id: docker-build
-        uses: docker/build-push-action@v3.1.0
+        uses: docker/build-push-action@v3.1.1
         with:
           push: true
           builder: ${{ steps.buildx.outputs.name }}
