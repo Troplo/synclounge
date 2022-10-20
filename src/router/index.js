@@ -187,7 +187,7 @@ export default new Router({
     {
       path: '/:room/:server?',
       name: 'RoomJoin',
-      redirect: "/join/:room/:server?",
+      redirect: '/join/:room/:server?',
       props: true,
       meta: {
         requiresAuth: true,
