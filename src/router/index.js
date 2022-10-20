@@ -8,7 +8,7 @@ const rightSidebar = () => import('@/components/TheSidebarRight.vue');
 const rightSidebarButton = () => import('@/components/TheSidebarRightButton.vue');
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
